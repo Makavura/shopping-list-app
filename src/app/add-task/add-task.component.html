@@ -1,0 +1,33 @@
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Add Item</h1>
+ 
+<form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
+  <div class="row">
+    <div class="col-lg-5 col-md-12 col-sm-12">
+      <div class="row">
+
+        <div class="col-md-12 mb-3">
+          <label>Item name</label>
+          <input type="text" formControlName="firstName" class="form-control" required>
+          <!-- Showing errors using getter method -->
+          <p *ngIf="firstName.touched && firstName.invalid" class="error"><sup>*</sup>Please enter item name</p>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Item Price</label>
+          <input type="text" formControlName="mobileNumber" class="form-control" required>
+          <!-- Showing errors using getter method -->
+          <p *ngIf="mobileNumber.touched && mobileNumber.invalid" class="error"><sup>*</sup>Please provide Item pricer</p>
+          <p *ngIf="mobileNumber.errors?.pattern" class="error"><sup>*</sup>Use numbers only</p>
+        </div>
+
+      </div>
+
+      <div class="form-group text-right">
+        <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Add Item</button>
+      </div>
+
+    </div>
+  </div>
+</form><!-- St
