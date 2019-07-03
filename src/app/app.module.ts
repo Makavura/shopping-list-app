@@ -8,15 +8,22 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AuthService } from './shared/auth.service';
+import { LoginFormComponent } from './login-form/login-form.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
